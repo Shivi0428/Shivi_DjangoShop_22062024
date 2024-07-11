@@ -1,0 +1,17 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}Checkout{% endblock title %}
+
+{% block main-content %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Checkout</h2>
+            <hr>
+            <p>Your order has been placed successfully!</p>
+            <a href="{% url 'orders' %}" class="btn btn-primary">View Orders</a>
+        </div>
+    </div>
+</div>
+{% endblock main-content %}

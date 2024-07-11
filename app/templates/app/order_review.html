@@ -1,0 +1,39 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}Order Review{% endblock title %}
+
+{% block main-content %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Order Review</h2>
+            <hr>
+            <form method="post" action="{% url 'checkout' %}">
+                {% csrf_token %}
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in order_items %}
+                        <tr>
+                            <td>{{ item.product.title }}</td>
+                            <td>{{ item.quantity }}</td>
+                            <td>{{ item.price }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <div class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-success shadow px-5 py-2">Checkout</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock main-content %}

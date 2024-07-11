@@ -1,0 +1,37 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}Checkout{% endblock title %}
+
+{% block main-content %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Checkout</h2>
+            <hr>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Unit Price</th>
+                        <th>Description</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                    <tr>
+                        <td>{{ order.PRODUCT }}</td>
+                        <td>{{ order.UNITPRICE }}</td>
+                        <td>{{ order.desc1 }}</td>
+                        <td>{{ order.QTY }}</td>
+                        <td>{{ order.UNITPRICE|floatformat:2 }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock main-content %}
